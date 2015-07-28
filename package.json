@@ -1,10 +1,11 @@
 {
   "name": "find-json",
   "main": "./lib/find-json",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "json path finder",
   "keywords": [
-    "json", "find"
+    "json",
+    "find"
   ],
   "activationCommands": {
     "atom-workspace": "find-json:show"
