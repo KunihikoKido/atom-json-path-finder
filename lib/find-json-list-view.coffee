@@ -9,8 +9,9 @@ tempFilePath = Path.join Os.tmpDir(), "find-json-view.json"
 
 module.exports =
 class FindJsonListView extends SelectListView
-  initialize: (originalJson) ->
+  initialize: (originalJson, {isFindElements} = {isFindElements: true}) ->
     super
+    @isFindElements = isFindElements
     @flattenJson = @makeFlattenJson(originalJson)
     @setItems(@makeItems(@flattenJson))
     @panel ?= atom.workspace.addModalPanel(item: this)
@@ -18,7 +19,7 @@ class FindJsonListView extends SelectListView
     @focusFilterEditor()
 
   viewForItem: (pathName) ->
-    "<li>#{pathName}.*</li>"
+    "<li>#{pathName}</li>"
 
   hide: -> @panel?.hide()
 
@@ -42,6 +43,11 @@ class FindJsonListView extends SelectListView
     return flattenJson
 
   makeItems: (flattenJson) ->
+    if @isFindElements
+      return @makeFindElementsItems(flattenJson)
+    return @makeFindObjectItems(flattenJson)
+
+  makeFindObjectItems: (flattenJson) ->
     items = []
     for pathName in Object.keys(flattenJson)
       pathList = pathName.split(".")
@@ -53,11 +59,40 @@ class FindJsonListView extends SelectListView
     items.sort()
     return items
 
+  makeFindElementsItems: (flattenJson) ->
+    Array::unique = ->
+      output = {}
+      output[@[key]] = @[key] for key in [0...@length]
+      value for key, value of output
+
+    items = []
+    for pathName in Object.keys(flattenJson)
+      pathName = pathName.replace(/\.[0-9]+\./g, ".*.")
+      pathName = pathName.replace(/\.[0-9]+$/, ".*")
+      items.push(pathName)
+    items.sort()
+    items = items.unique()
+    return items
+
   filterItems: (pathName) ->
+    if @isFindElements
+      return @filterFindElementsItems(pathName)
+    return @filterFindObjectItems(pathName)
+
+  filterFindObjectItems: (pathName) ->
     String::startsWith ?= (s) -> @[...s.length] is s
     items = {}
     for key, value of @flattenJson
       if key.startsWith(pathName)
+        items[key] = value
+    return items
+
+  filterFindElementsItems: (pathName) ->
+    items = {}
+    for key, value of @flattenJson
+      compKey = key.replace(/\.[0-9]+\./g, ".*.")
+      compKey = compKey.replace(/\.[0-9]+$/, ".*")
+      if pathName == compKey
         items[key] = value
     return items
 

@@ -2,8 +2,6 @@ FindJsonListView = require './find-json-list-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = FindJson =
-  findJsonView: null
-  modalPanel: null
   subscriptions: null
 
   config:
@@ -19,12 +17,13 @@ module.exports = FindJson =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:show': => @show()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:find-elements': => @show(isFindElements: true)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:find-object': => @show(isFindElements: false)
 
   deactivate: ->
     @subscriptions.dispose()
 
-  show: ->
+  show: ({isFindElements} = {isFindElements: true})->
     editor = atom.workspace.getActiveTextEditor()
     return unless editor?
 
@@ -35,4 +34,6 @@ module.exports = FindJson =
     catch error
       return console.error(error)
 
-    findJsonListView = new FindJsonListView(jsonObject)
+    options =
+      isFindElements: isFindElements
+    findJsonListView = new FindJsonListView(jsonObject, options)

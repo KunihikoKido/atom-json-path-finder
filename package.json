@@ -8,7 +8,10 @@
     "find"
   ],
   "activationCommands": {
-    "atom-workspace": "find-json:show"
+    "atom-workspace": [
+      "find-json:find-elements",
+      "find-json:find-object"
+    ]
   },
   "repository": "https://github.com/KunihikoKido/atom-find-json",
   "license": "MIT",
