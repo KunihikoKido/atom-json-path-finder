@@ -1,0 +1,22 @@
+{
+  "name": "find-json",
+  "main": "./lib/find-json",
+  "version": "0.0.0",
+  "description": "json path finder",
+  "keywords": [
+    "json", "find"
+  ],
+  "activationCommands": {
+    "atom-workspace": "find-json:show"
+  },
+  "repository": "https://github.com/KunihikoKido/atom-find-json",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "flat": "git://github.com/KunihikoKido/flat.git",
+    "atom-space-pen-views": "^2.0.5",
+    "fs-plus": "^2.8.1"
+  }
+}
