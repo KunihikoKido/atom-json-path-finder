@@ -48,7 +48,7 @@ class FindJsonListView extends SelectListView
 
     items = []
     for pathName in Object.keys(flattenJson)
-      pathName = pathName.replace(/\.[0-9]/g, "[]")
+      pathName = pathName.replace(/\.[0-9]+/g, "[]")
       items.push(pathName)
     items.sort()
     items = items.unique()
@@ -57,7 +57,7 @@ class FindJsonListView extends SelectListView
   filterItems: (pathName) ->
     items = {}
     for key, value of @flattenJson
-      if pathName == key.replace(/\.[0-9]/g, "[]")
+      if pathName == key.replace(/\.[0-9]+/g, "[]")
         items[key] = value
     return items
 
