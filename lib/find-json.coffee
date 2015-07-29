@@ -8,32 +8,27 @@ module.exports = FindJson =
     maxDepth:
       type: 'integer'
       default: 6
-    convertFlattenJson:
-      type: 'boolean'
-      default: true
 
   activate: (state) ->
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:find-elements': => @show(isFindElements: true)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:find-object': => @show(isFindElements: false)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:show': => @show(isResultFlatten: false)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:show-result-flatten': => @show(isResultFlatten: true)
 
   deactivate: ->
     @subscriptions.dispose()
 
-  show: ({isFindElements} = {isFindElements: true})->
+  show: ({isResultFlatten} = {isResultFlatten: true})->
     editor = atom.workspace.getActiveTextEditor()
     return unless editor?
 
     text = editor.getText()
 
     try
-      jsonObject = JSON.parse(text)
+      object = JSON.parse(text)
     catch error
       return console.error(error)
 
-    options =
-      isFindElements: isFindElements
-    findJsonListView = new FindJsonListView(jsonObject, options)
+    findJsonListView = new FindJsonListView(object, isResultFlatten)

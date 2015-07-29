@@ -9,8 +9,8 @@
   ],
   "activationCommands": {
     "atom-workspace": [
-      "find-json:find-elements",
-      "find-json:find-object"
+      "find-json:show",
+      "find-json:show-result-flatten"
     ]
   },
   "repository": "https://github.com/KunihikoKido/atom-find-json",

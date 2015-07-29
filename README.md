@@ -6,5 +6,5 @@ Json path finder
 
 ### Commands
 
-* Find Json: Find Elements
-* Find Json: Find Object
+* Find Json: Show
+* Find Json: Show Result Flatten
