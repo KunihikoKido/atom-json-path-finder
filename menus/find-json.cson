@@ -1,20 +1,17 @@
 # See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
-'context-menu':
-  'atom-text-editor': [
-    {
-      'label': 'Toggle find-json'
-      'command': 'find-json:toggle'
-    }
-  ]
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'find-json'
+      'label': 'Find JSON'
       'submenu': [
         {
-          'label': 'Toggle'
-          'command': 'find-json:toggle'
+          'label': 'Show'
+          'command': 'find-json:show'
+        }
+        {
+          'label': 'Show Result Flatten'
+          'command': 'find-json:show-result-flatten'
         }
       ]
     ]
