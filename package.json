@@ -13,7 +13,7 @@
       "json-path-finder:show-result-flatten"
     ]
   },
-  "repository": "https://github.com/KunihikoKido/atom-find-json",
+  "repository": "https://github.com/KunihikoKido/atom-json-path-finder",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
