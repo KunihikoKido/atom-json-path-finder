@@ -3,15 +3,15 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'Find JSON'
+      'label': 'JSON Path Finder'
       'submenu': [
         {
           'label': 'Show'
-          'command': 'find-json:show'
+          'command': 'json-path-finder:show'
         }
         {
           'label': 'Show Result Flatten'
-          'command': 'find-json:show-result-flatten'
+          'command': 'json-path-finder:show-result-flatten'
         }
       ]
     ]

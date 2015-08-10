@@ -8,5 +8,5 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'shift-cmd-j': 'find-json:show'
-  'shift-cmd-k': 'find-json:show-result-flatten'
+  'shift-cmd-j': 'json-path-finder:show'
+  'shift-cmd-k': 'json-path-finder:show-result-flatten'

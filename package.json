@@ -1,6 +1,6 @@
 {
   "name": "json-path-finder",
-  "main": "./lib/find-json",
+  "main": "./lib/json-path-finder",
   "version": "0.1.5",
   "description": "json path finder",
   "keywords": [
@@ -9,8 +9,8 @@
   ],
   "activationCommands": {
     "atom-workspace": [
-      "find-json:show",
-      "find-json:show-result-flatten"
+      "json-path-finder:show",
+      "json-path-finder:show-result-flatten"
     ]
   },
   "repository": "https://github.com/KunihikoKido/atom-find-json",

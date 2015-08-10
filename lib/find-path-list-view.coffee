@@ -8,7 +8,7 @@ flatten = require 'flat'
 tempFilePath = Path.join Os.tmpDir(), "find-json-view.json"
 
 module.exports =
-class FindJsonListView extends SelectListView
+class FindPathListView extends SelectListView
   initialize: (objct, @isResultFlatten) ->
     super
     @isFlatten ?= true
@@ -33,7 +33,7 @@ class FindJsonListView extends SelectListView
   # private ...
 
   makeFlattenJson: (objct) ->
-    maxDepth = atom.config.get("find-json.maxDepth")
+    maxDepth = atom.config.get("json-path-finder.maxDepth")
     options = {}
     if maxDepth != -1
       options.maxDepth = maxDepth

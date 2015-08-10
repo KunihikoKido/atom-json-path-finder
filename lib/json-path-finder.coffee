@@ -1,4 +1,4 @@
-FindJsonListView = require './find-json-list-view'
+FindPathListView = require './find-path-list-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = FindJson =
@@ -14,8 +14,8 @@ module.exports = FindJson =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:show': => @show(isResultFlatten: false)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'find-json:show-result-flatten': => @show(isResultFlatten: true)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'json-path-finder:show': => @show(isResultFlatten: false)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'json-path-finder:show-result-flatten': => @show(isResultFlatten: true)
 
   deactivate: ->
     @subscriptions.dispose()
@@ -31,4 +31,4 @@ module.exports = FindJson =
     catch error
       return console.error(error)
 
-    findJsonListView = new FindJsonListView(object, isResultFlatten)
+    findPathListView = new FindPathListView(object, isResultFlatten)

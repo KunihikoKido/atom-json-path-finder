@@ -1,10 +1,10 @@
-# find-json package
+# json-path-finder package
 
 Json path finder
 
-![overview](https://raw.githubusercontent.com/KunihikoKido/atom-find-json/master/screenshots/overview.gif)
+![overview](https://raw.githubusercontent.com/KunihikoKido/atom-json-path-finder/master/screenshots/overview.gif)
 
 ### Commands
 
-* Find Json: Show
-* Find Json: Show Result Flatten
+* Json Path Finder: Show
+* Json Path Finder: Show Result Flatten
