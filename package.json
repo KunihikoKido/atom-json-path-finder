@@ -1,5 +1,5 @@
 {
-  "name": "find-json",
+  "name": "json-path-finder",
   "main": "./lib/find-json",
   "version": "0.1.4",
   "description": "json path finder",
