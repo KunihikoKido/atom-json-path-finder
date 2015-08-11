@@ -8,3 +8,8 @@ Json path finder
 
 * Json Path Finder: Find
 * Json Path Finder: Find Flatten
+
+### Options
+
+#### maxDepth
+Maximum number of nested objects to find path. Default to 6.
