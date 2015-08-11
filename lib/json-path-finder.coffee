@@ -14,8 +14,8 @@ module.exports = FindJson =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'json-path-finder:show': => @show(isResultFlatten: false)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'json-path-finder:show-result-flatten': => @show(isResultFlatten: true)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'json-path-finder:find': => @show(isResultFlatten: false)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'json-path-finder:find-flatten': => @show(isResultFlatten: true)
 
   deactivate: ->
     @subscriptions.dispose()

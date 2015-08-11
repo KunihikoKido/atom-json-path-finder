@@ -9,8 +9,8 @@
   ],
   "activationCommands": {
     "atom-workspace": [
-      "json-path-finder:show",
-      "json-path-finder:show-result-flatten"
+      "json-path-finder:find",
+      "json-path-finder:find-flatten"
     ]
   },
   "repository": "https://github.com/KunihikoKido/atom-json-path-finder",

@@ -6,5 +6,5 @@ Json path finder
 
 ### Commands
 
-* Json Path Finder: Show
-* Json Path Finder: Show Result Flatten
+* Json Path Finder: Find
+* Json Path Finder: Find Flatten
