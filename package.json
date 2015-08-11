@@ -1,7 +1,7 @@
 {
   "name": "json-path-finder",
   "main": "./lib/json-path-finder",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "json path finder",
   "keywords": [
     "json",
